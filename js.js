@@ -1,13 +1,14 @@
+
+
 let playerSelection = prompt("write rock, paper or scissors");
 const choices = ["rock", "paper", "scissors"];
 let computerSelection = computerPlay(choices);
-
 
 function computerPlay(choices) {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function game(computerPlay, playerSelection) {
+function game(computerSelection, playerSelection) {
     switch(computerSelection > playerSelection) {
         case "rock" > "paper":
             return ("You Win Paper beats Rock!");
@@ -43,12 +44,14 @@ function game(computerPlay, playerSelection) {
 
 let result = game(computerPlay, playerSelection);
 
-alert(result);
 
 function realGame(result) {
-    function playRound {
-        
+    for (let i = 1; i <= 5; i++) {
+        let playerSelection = prompt("write rock, paper or scissors");
+        let computerSelection = computerPlay(choices);
+        console.log(game(computerPlay, playerSelection), i); 
+        alert(result);
+        }
     }
-}
 
-console.log(playerSelection);
+
