@@ -1,45 +1,38 @@
 
-let choices = ["rock", "paper", "scissors"];
-let playerSelection = prompt("write rock, paper or scissors", "");
-let computerSelection = computerPlay(choices);
-let computerScore = 0;
-let playerScore = 0;
+const CHOICES = ["rock", "paper", "scissors"];
+let playerSelection = prompt("Please choose rock, paper, or scissors", "");
+let computerSelection = computerChoice(CHOICES);
 
-
-
-function computerPlay(choices) {
-    return choices[Math.floor(Math.random() * choices.length)];
+function computerChoice(CHOICES) {
+   return CHOICES[Math.floor(Math.random() * CHOICES.length)];
 }
 
-function game (computerSelection, playerSelection) {
-    if (computerSelection === playerSelection) {
-        ++computerScore
-        ++playerScore
-        alert("Its a tie!")
-    } else if ( 
-        (computerSelection == "rock" && playerSelection == "paper") ||
-        (computerSelection == "scissors" && playerSelection == "rock") ||
-        (computerSelection == "paper" && playerSelection == "scissors")
+function playRound(computerSelection, playerSelection) {
+    if (
+        (computerSelection == "rock" && playerSelection == "scissors") ||
+        (computerSelection == "paper" && playerSelection == "rock") ||
+        (computerSelection == "scissors" && playerSelection == "paper")
     ) {
-        ++playerScore
-        alert("You Win!")
+        return `You lose! ${computerSelection} beats ${playerSelection}`
 
     } else if (
-        (playerSelection == "rock" && computerSelection == "paper") ||
-        (playerSelection == "scissors" && computerSelection == "rock") ||
-        (playerSelection == "paper" && computerSelection == "scissors")
-    ){
-        ++computerScore
-        alert("You lost")
 
+        (playerSelection == "rock" && computerSelection == "scissors") ||
+        (playerSelection == "paper" && computerSelection == "rock") ||
+        (playerSelection == "scissors" && computerSelection == "paper")
+    ) {
+        return `You Win! ${playerSelection} beats ${computerSelection}`
+    
+    } else if (playerSelection == computerSelection) {
+        return `Its a tie! ${playerSelection} and ${computerSelection}`
+    
+    } else {
+        return `${playerSelection} is not a valid entry`
     }
+    
 }
-console.log(computerScore);
-console.log(playerScore);
 
-let result = game(computerPlay, playerSelection);
+let results = playRound(computerSelection, playerSelection);
 
-
-
-
+alert(results);
 
