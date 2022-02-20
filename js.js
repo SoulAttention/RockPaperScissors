@@ -2,7 +2,6 @@
 const CHOICES = ["rock", "paper", "scissors"];
 let playerSelection = prompt("Please choose rock, paper, or scissors", "").toLowerCase();
 let computerSelection = computerChoice(CHOICES);
-let results = playRound(computerSelection, playerSelection);
 let playerScore = 0;
 let computerScore = 0;
 
@@ -19,17 +18,18 @@ function playRound(computerSelection, playerSelection) {
         (computerSelection == "paper" && playerSelection == "rock") ||
         (computerSelection == "scissors" && playerSelection == "paper")
     ) {
-        
+        computerScore = ++computerScore
         return `You lose! ${computerSelection} beats ${playerSelection}` 
         
+
     } else if (
 
         (playerSelection == "rock" && computerSelection == "scissors") ||
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-        
-        return `You Win! ${playerSelection} beats ${computerSelection}` 
+        playerScore = ++playerScore
+        return `You Win! ${playerSelection} beats ${computerSelection}`
         
     
     } else if (playerSelection == computerSelection) {
@@ -41,19 +41,14 @@ function playRound(computerSelection, playerSelection) {
 }
 
 // Best of 5 rounds
-
-function game(playRound, playerScore, computerScore) {
-    for (let i = 0; i < 5; i++) {
-        if (playRound == `You lose! ${computerSelection} beats ${playerSelection}`) {
-            return computerScore = ++computerScore;
-        } else if (playRound == `You Win! ${playerSelection} beats ${computerSelection}`) {
-            return playerScore = ++playerScore;
-        }
+function game(playRound) {
+    for (let i = playRound; i < 5; i++){
+        
     }
 }
 
+console.log(playRound(computerSelection, playerSelection))
 //
-console.log(results);
 
 console.log(playerScore);
 console.log(computerScore);
