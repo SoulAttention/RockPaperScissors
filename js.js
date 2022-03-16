@@ -2,7 +2,8 @@
 const CHOICES = ["rock", "paper", "scissors"];
 let playerSelection = prompt("Please choose rock, paper, or scissors", "").toLowerCase();
 let computerSelection = computerChoice(CHOICES);
-
+let playerScore = 0;
+let computerScore = 0;
 
 // Computer choosing rock, paper, or scissors
 function computerChoice(CHOICES) {
@@ -42,18 +43,14 @@ function playRound(computerSelection, playerSelection) {
 
 
 // Best of 5 rounds
-function game(playRound) {
-    for (let i = 0; i < 5; i++){
-        let playerScore = 0;
-        let computerScore = 0;
+ function game(playRound) {
+    for (let i = 0; computerScore || playerScore < 5; i++){
+        
+       playRound
 
-        if (playRound(computerSelection, playerSelection) = `You lose! ${computerSelection} beats ${playerSelection}`) {
-            return computerScore++;
-        } else if (playRound(computerSelection, playerSelection) = `You Win! ${playerSelection} beats ${computerSelection}`) {
-            return playerScore++;
-        } 
-    }
-}
+    
+     }
+ }
 
 console.log(playRound(computerSelection, playerSelection))
 //
